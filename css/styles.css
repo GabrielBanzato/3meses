@@ -255,6 +255,66 @@ img {
   font-size: 0.98rem;
 }
 
+.timeline-write {
+  margin-top: 1.1rem;
+  padding-top: 1rem;
+  border-top: 1px dashed rgba(244, 185, 66, 0.4);
+}
+
+.timeline-write-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--sunflower-dark);
+  margin-bottom: 0.5rem;
+}
+
+.timeline-textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 4.5rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--brown);
+  background: var(--cream-soft);
+  border: 1.5px solid rgba(244, 185, 66, 0.35);
+  border-radius: 14px;
+  padding: 0.7rem 0.9rem;
+  line-height: 1.5;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.timeline-textarea::placeholder {
+  color: var(--brown-soft);
+  opacity: 0.65;
+}
+
+.timeline-textarea:hover {
+  background: var(--white);
+}
+
+.timeline-textarea:focus {
+  outline: none;
+  background: var(--white);
+  border-color: var(--sunflower);
+  box-shadow: 0 0 0 4px rgba(244, 185, 66, 0.18);
+}
+
+.timeline-save-hint {
+  display: inline-block;
+  margin-top: 0.4rem;
+  font-size: 0.78rem;
+  color: var(--sunflower-dark);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.timeline-save-hint.is-visible {
+  opacity: 1;
+}
+
 /* ===== GALERIA / POLAROIDS ===== */
 .gallery-section {
   background: linear-gradient(180deg, transparent, rgba(255, 217, 160, 0.25) 20%, rgba(255, 217, 160, 0.25) 80%, transparent);

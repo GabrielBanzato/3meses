@@ -336,4 +336,45 @@
     }, { threshold: 0.5 });
     brindeObserver.observe(brindeSection);
   }
+
+  /* =========================================================
+     5) CAIXINHAS "COMO VOCÊ SE SENTIU" — salvam sozinhas
+     Guarda o texto no localStorage do navegador, então o que
+     ela escrever continua lá mesmo se fechar/recarregar a página.
+  ========================================================= */
+  var timelineFieldIds = ['feel-conheceu', 'feel-beijo', 'feel-buque', 'feel-hoje'];
+  var timelineStoragePrefix = 'pitica-3meses-timeline-';
+
+  timelineFieldIds.forEach(function (id) {
+    var textarea = document.getElementById(id);
+    var hint = document.getElementById(id + '-hint');
+    if (!textarea) return;
+
+    try {
+      var saved = localStorage.getItem(timelineStoragePrefix + id);
+      if (saved) textarea.value = saved;
+    } catch (e) {
+      // localStorage indisponível (ex: navegação privada) — segue sem salvar
+    }
+
+    var saveTimeout = null;
+    textarea.addEventListener('input', function () {
+      if (saveTimeout) clearTimeout(saveTimeout);
+      saveTimeout = setTimeout(function () {
+        try {
+          localStorage.setItem(timelineStoragePrefix + id, textarea.value);
+          if (hint) {
+            hint.textContent = 'salvo ✓';
+            hint.classList.add('is-visible');
+            if (hint._hideTimeout) clearTimeout(hint._hideTimeout);
+            hint._hideTimeout = setTimeout(function () {
+              hint.classList.remove('is-visible');
+            }, 1600);
+          }
+        } catch (e) {
+          // localStorage indisponível — o texto ainda fica no campo até recarregar
+        }
+      }, 500);
+    });
+  });
 })();
