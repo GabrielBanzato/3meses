@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  love-site:
+    build: .
+    container_name: love_site
+    restart: unless-stopped
+    # Se você usa o Nginx Proxy Manager em uma rede específica do Docker, descomente abaixo:
+    # networks:
+    #   - sua_rede_proxy
