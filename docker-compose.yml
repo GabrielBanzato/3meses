@@ -7,3 +7,5 @@ services:
     # Se você usa o Nginx Proxy Manager em uma rede específica do Docker, descomente abaixo:
     # networks:
     #   - sua_rede_proxy
+    ports:
+      - "8181:80"
