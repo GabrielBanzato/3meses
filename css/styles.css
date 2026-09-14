@@ -256,63 +256,99 @@ img {
 }
 
 .timeline-write {
-  margin-top: 1.1rem;
-  padding-top: 1rem;
-  border-top: 1px dashed rgba(244, 185, 66, 0.4);
+  position: relative;
+  margin-top: 1.8rem;
+  padding: 1.4rem 1.3rem 1.3rem;
+  background: linear-gradient(165deg, rgba(255, 217, 160, 0.28), rgba(255, 255, 255, 0.9));
+  border: 2px dashed rgba(244, 185, 66, 0.5);
+  border-radius: 20px;
+}
+
+.timeline-write::before {
+  content: '🖊️';
+  position: absolute;
+  top: -18px;
+  left: 20px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  background: var(--white);
+  border: 2px solid var(--sunflower);
+  border-radius: 50%;
+  box-shadow: 0 6px 14px rgba(244, 185, 66, 0.35);
 }
 
 .timeline-write-label {
   display: block;
-  font-size: 0.72rem;
+  font-family: var(--font-title);
+  font-size: 1.15rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--sunflower-dark);
-  margin-bottom: 0.5rem;
+  color: var(--brown);
+  margin: 0.1rem 0 0.7rem;
 }
 
 .timeline-textarea {
   width: 100%;
   resize: vertical;
-  min-height: 4.5rem;
+  min-height: 4.8rem;
   font-family: var(--font-body);
   font-size: 0.95rem;
   color: var(--brown);
-  background: var(--cream-soft);
-  border: 1.5px solid rgba(244, 185, 66, 0.35);
+  background: var(--white);
+  border: none;
   border-radius: 14px;
-  padding: 0.7rem 0.9rem;
-  line-height: 1.5;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  padding: 0.85rem 1rem;
+  line-height: 1.6;
+  box-shadow:
+    inset 0 1px 3px rgba(107, 66, 38, 0.07),
+    0 6px 16px rgba(107, 66, 38, 0.06);
+  transition: box-shadow 0.25s ease, transform 0.2s ease;
 }
 
 .timeline-textarea::placeholder {
   color: var(--brown-soft);
-  opacity: 0.65;
+  opacity: 0.6;
+  font-style: italic;
 }
 
 .timeline-textarea:hover {
-  background: var(--white);
+  box-shadow:
+    inset 0 1px 3px rgba(107, 66, 38, 0.07),
+    0 8px 20px rgba(244, 185, 66, 0.18);
 }
 
 .timeline-textarea:focus {
   outline: none;
-  background: var(--white);
-  border-color: var(--sunflower);
-  box-shadow: 0 0 0 4px rgba(244, 185, 66, 0.18);
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 1px 3px rgba(107, 66, 38, 0.06),
+    0 0 0 4px rgba(244, 185, 66, 0.22),
+    0 12px 24px rgba(244, 185, 66, 0.2);
 }
 
 .timeline-save-hint {
-  display: inline-block;
-  margin-top: 0.4rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.6rem;
+  font-family: var(--font-body);
+  font-weight: 600;
   font-size: 0.78rem;
   color: var(--sunflower-dark);
+  background: rgba(244, 185, 66, 0.16);
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transform: translateY(4px) scale(0.92);
+  transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
 .timeline-save-hint.is-visible {
   opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 /* ===== GALERIA / POLAROIDS ===== */
